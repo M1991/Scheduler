@@ -1,0 +1,220 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.sctLnk {
+    float:right;
+    margin-left:4px;
+    margin-right:10px;
+
+}
+
+.shortBox {
+    width: 60%;
+}
+
+.borderBox {
+    padding: 5px 5px 5px 5px;
+    border-color: #8b9aad;
+}
+.white{
+    color:white;
+}
+
+.d1Total {
+    border: 1px black;
+    /*
+        #2ECC71, goldenrod,
+        dark green -  #42a14e 
+    */
+    background-color: #42a14e;
+    border-radius: 5px 20px 5px;
+    margin: 5px 5px 5px 5px;
+    padding: 15px 15px 15px 15px;
+}
+
+.d2Total {
+    border: 1px black;
+    background-color: #DB706A;
+    border-radius: 5px 20px 5px;
+    margin: 5px 5px 5px 5px;
+    padding: 15px 15px 15px 15px;
+}
+
+.d3Total {
+    border: 1px black;
+    background-color: #1284C2;
+    border-radius: 5px 20px 5px;
+    margin: 5px 5px 5px 5px;
+    padding: 15px 15px 15px 15px;
+}
+
+.d4Total {
+    border: 1px black;
+    background-color: #1E2B3B;
+    border-radius: 5px 20px 5px;
+    margin: 5px 5px 5px 5px;
+    padding: 15px 15px 15px 15px;
+}
+
+.d1DesignNo, .d2DesignNo, .d3DesignNo {
+    font-size: 32px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+.modSmallClass {
+    max-width: 120px;
+    width: 30px;
+}
+
+td :first-child{
+    clear:both;
+}
+
+.maxClass {
+    max-width: 900px;
+    width: 500px;
+}
+
+.modClass {
+    /*  For text area*/
+    max-width: 650px;
+    width: 350px;
+}
+
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+    background-color: #A9FEE1; /*999999*/
+    color: #000000;
+    font-weight: 600;
+}
+
+.hoverDesgn:hover{
+    background-color: brown;
+}
+
+.fieldsetWid{
+    max-height:400px;
+    overflow:scroll;
+}
+.modal-lg {
+    max-width: 900px;
+}
+@media (min-width: 768px) {
+    .modal-lg {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+@media (min-width: 920px) {
+    .modal-lg {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1420px) {
+    .modal-lg {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea,
+.input-group {
+    max-width: 280px;
+}
+
+.timepicker {
+    list-style: none;
+}
+
+.progTop {
+    background-color: lightgray;
+    border-radius: 11px;
+    padding: 10px 10px 10px 10px;
+}
+
+.tooltip {
+    display: inline-block;
+}
+
+    .tooltip .tooltiptext {
+        margin-left: 9px;
+        width: 320px;
+        visibility: hidden;
+        background-color: #FFF;
+        border-radius: 4px;
+        border: 1px solid #aeaeae;
+        position: absolute;
+        z-index: 1;
+        padding: 5px;
+        margin-top: -15px; /* according to application */
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+        .tooltip .tooltiptext::after {
+            content: " ";
+            position: absolute;
+            top: 5%;
+            right: 100%; /* To the left of the tooltip */
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #aeaeae transparent transparent;
+        }
+
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+/*
+    NOT IN USE
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.1em 1.4em 1.1em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+}
+*/
+
+.borderRepeat {
+    border: 1px solid #E2E1E1;
+    border-radius: 12px;
+}
+
+
+.glyphBorder {
+    border: 1.5px solid #999999;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: inherit;
+}
