@@ -1,0 +1,411 @@
+﻿@model Scheduler.Models.ManageViewModelNew
+@*@model IEnumerable<Scheduler.Models.ApplicationDbContext.Events>*@
+@{
+    ViewBag.Title = "LandingPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Sales Details</h3>
+
+@*<div class="row">
+    <div class="col-sm-6 col-md-6 col-xs-6">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Updates
+                </h3>
+            </div>
+
+            <div class="panel-body">
+                <ul>
+                    <li>@Html.ActionLink("Open S.O. Full Details", "FullSoLists", null, new { })</li>
+                    <li>@Html.ActionLink("Ask for Reschedule", "", null, new { })</li><!--AskReschedule-->
+                    <li>@Html.ActionLink("Open Job Orders", "", null, new { })</li><!--OpenJO-->
+                    <li><a href="">Open P.O.</a></li>
+                    <li><a href="">Some Link</a></li>
+                </ul>
+                <!--<button type="button" class="btn btn-default">
+                        Lorem Ipsum  <span class="badge badge-light"> 7</span>
+                    </button>-->
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-md-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Update Station
+                </h3>
+            </div>
+
+            <div class="panel-body">
+                <button type="button" class="btn btn-default">
+                    Lorem Ipsum<span class="badge badge-light"> 7</span>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <!-- Update so that cannot select the previous station, get current, disable all above-->
+                    Lorem Ipsum  <span class="badge badge-light"> 7</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div> *@
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row panel-title">
+
+                    <div class="col-sm-4"><b> Date of Delivery</b></div>
+                    <div class="col-sm-8">
+                        @*@Html.ActionLink("Reset", "ProductionPage", null, new { @class = "btn btn-danger", @style = "float:right;" })*@
+                        @*<button type="button" formaction="/Production/ProductionPage" class="btn btn-danger sctLnk"><i class="fa fa-refresh"></i></button>*@
+                        <a href="@Url.Action("SalesPage", "Sales")" class="btn btn-primary sctLnk" style="float:right;"><i class="fa fa-refresh"></i></a>
+                        @using (Html.BeginForm("SalesPage", "Sales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <button type="submit" class="btn btn-primary sctLnk"><i class="fa fa-search"></i></button>
+                            <input type="text" name="Searchsono" class="form-control" style="float:right;margin-top:0px;" value="@Request["Searchsono"]" placeholder="Search SO No" />
+                        }                       
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body fieldsetWid">
+                Set SO end date, Save to update SO details &raquo;&raquo;
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.SONo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.proCustomer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.startt)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.endt)
+                            </th>
+
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.PoNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.PoStatus)
+                            </th>
+
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.JoNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.nowAtStatn)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventsPlain.Expecteddate)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model.EventsEnu)
+                    {
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SONo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.proCustomer)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.startt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.endt)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PoNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PoStatus)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SoStatus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nowAtStatn)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Expecteddate)
+                                </td>
+                                <td>
+                                   @* @Html.ActionLink("Update Dates", "UpdateDate", new { id = item.uId }) |
+    @Html.ActionLink("Details", "Details", new { id = item.uId }) |*@
+
+                                    @*<span class="modClass blink_me" style="float:right;font-size:16px;color:red;font-family:Palatino Linotype;margin-top:-9px;" data-toggle="modal" data-target="#myModal">[ Help ]</span>*@
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+
+                </table>
+                @*@Html.ActionLink("Update Date", "UpdateDate", "Production", new { @class = "btn btn-default" })*@
+
+                @* <button type="button" class="btn btn-default"> <!-- Update so that cannot select the previous station, get current, disable all above-->
+                      <span class="badge badge-light"> 7</span>
+                    </button>*@
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <div class="row panel-title">
+                    <div class="col-sm-4"><b> Update Station</b></div>
+                    <div class="col-sm-8">
+                        @*@Html.ActionLink("Reset", "ProductionPage", null, new { @class="btn btn-danger", @style="float:right;"})*@
+                        <a href="@Url.Action("SalesPage", "Sales")" class="btn btn-success sctLnk" style="float:right;"><i class="fa fa-refresh"></i></a>
+                        @using (Html.BeginForm("SalesPage", "Sales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <button type="submit" class="btn btn-success sctLnk"><i class="fa fa-search"></i></button>
+                            <input type="text" name="Searchp" class="form-control" style="float:right;margin-top:0px;" value="@Request["Searchp"]" placeholder="Search Part No" />
+                        }                        
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body fieldsetWid">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoNoEventds.SoNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoNoEventds.HCategory)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoNoEventds.MultiplePartNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoNoEventds.MultiplePartQtyNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoNoEventds.StatnUpdt)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.EventsPlain.PoStatus)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EventsPlain.JoNo)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EventsPlain.nowAtStatn)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EventsPlain.dtCreated)
+                                </th>*@
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model.SoNoEventdsList)
+                    {
+                        <tbody>
+                            <tr class="default hoverDesgn">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SoNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HCategory)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MultiplePartNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MultiplePartQtyNo)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StatnUpdt)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.PoStatus)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SoStatus)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.nowAtStatn)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dtCreated)
+                                    </td>*@
+                                <td>
+                                 @*   @Html.ActionLink("Update Station", "StatnUpdate", new { id = item.id }) |
+    @Html.ActionLink("Details", "Details", new { id = item.id }) |*@
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+
+                </table>
+                @*@Html.ActionLink("Update Date", "UpdateDate", "Production", new { @class = "btn btn-default" })*@
+
+                @* <button type="button" class="btn btn-default"> <!-- Update so that cannot select the previous station, get current, disable all above-->
+                      <span class="badge badge-light"> 7</span>
+                    </button>*@
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!--  Not in use-->
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <div class="row panel-title">
+                    <div class="col-sm-4"><b> Order Details</b></div>
+                    <div class="col-sm-8">
+                        @*@Html.ActionLink("Reset", "ProductionPage", null, new { @class = "btn btn-danger", @style = "float:right;" })*@
+                        <a href="@Url.Action("SalesPage", "Sales")" class="btn btn-warning sctLnk" style="float:right;"><i class="fa fa-refresh"></i></a>
+                        @using (Html.BeginForm("SalesPage", "Sales", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <button type="submit" class="btn btn-warning sctLnk"><i class="fa fa-search"></i></button>
+                            <input type="text" name="Searchord" class="form-control" style="float:right;margin-top:0px;" value="@Request["Searchord"]" placeholder="Search SO No" />
+                        }                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                Set SO end date, Save to update SO details &raquo;&raquo;
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.SONo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.proCustomer)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.startt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.endt)
+                        </th>
+
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.PoNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.SoStatus)
+                        </th>
+
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.JoNo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.nowAtStatn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EventsPlain.Expecteddate)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model.EventsSec)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SONo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.proCustomer)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.startt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.endt)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PoNo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoStatus)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoStatus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nowAtStatn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Expecteddate)
+                            </td>
+                            <td>
+                                @*@Html.ActionLink("Edit", "Edit", new { id = item.uId }) |*@
+                                @Html.ActionLink("Full Details", "Details", new { id = item.uId })
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                @*@Html.ActionLink("Update Date", "UpdateDate", "Production", new { @class = "btn btn-default" })*@
+
+                @* <button type="button" class="btn btn-default"> <!-- Update so that cannot select the previous station, get current, disable all above-->
+                      <span class="badge badge-light"> 7</span>
+                    </button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script type="text/javascript">
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>*@

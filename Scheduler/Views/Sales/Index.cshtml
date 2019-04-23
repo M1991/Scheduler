@@ -1,0 +1,196 @@
+﻿@model IEnumerable<Scheduler.Models.Events>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.eventId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NofDays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etDept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proCustomer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trigPerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PoNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PoStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SONo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JoNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nowAtStatn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotpartNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventsStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.backgColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.borderColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.textColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expecteddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduleddateofDelivery)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RescDated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.value)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.eventId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NofDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.etDept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proCustomer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.allDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trigPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PoNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PoStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SONo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nowAtStatn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotpartNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventsStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.backgColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.borderColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.textColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expecteddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScheduleddateofDelivery)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RescDated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.value)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.uId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.uId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uId })
+        </td>
+    </tr>
+}
+
+</table>
