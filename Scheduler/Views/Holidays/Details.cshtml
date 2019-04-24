@@ -1,0 +1,51 @@
+﻿@model Scheduler.Models.HolidayTableModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HolidayTableModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.incr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.incr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HDesc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.iId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,87 @@
+﻿@model Scheduler.Models.HolidayTableModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create","Holidays", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>HolidayTableModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.incr, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.incr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.incr, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hdate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Hdate, new { htmlAttributes = new { @class = "form-control datepicker", type="text", id = "dtCrtd", autocomplete = "off" } })
+                @Html.ValidationMessageFor(model => model.Hdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HDesc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    List<SelectListItem> listItemss2 = new List<SelectListItem>();
+                    listItemss2.Add(new SelectListItem
+                    {
+                        Text = "Public Holiday",
+                        Value = "Public Holiday"
+                    });
+                    listItemss2.Add(new SelectListItem
+                    {
+                        Text = "Office Holiday",
+                        Value = "Office Holiday"
+                    });
+                    listItemss2.Add(new SelectListItem
+                    {
+                        Text = "Others",
+                        Value = "Others"
+                    });
+                }
+                @Html.DropDownListFor(model => model.HDesc, new SelectList(listItemss2, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HDesc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1 col-md-offset-2">
+                    <button type="submit" class="btn btn-default">Add</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Total Holidays  <span class="badge badge-light">@ViewBag.TotHoliday</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
