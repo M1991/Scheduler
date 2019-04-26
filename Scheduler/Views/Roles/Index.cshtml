@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Index";
+}
+
+@ViewBag.Message
+
+<h3>Available Roles For Application</h3>
+<hr />
+
+<style type="text/css">
+    #tbrole, .c {
+        border: double;
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 borderBox">
+        <h3>Statistics :</h3>
+        <div class="borderBox">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="d1Total">
+
+                    <div class="d1DesignNo">
+                        @{ if (Session["TUserCount"] != null)
+                            {
+                                var TUserCount = Session["TUserCount"];
+                                <span class="glyphicon glyphicon-user"></span>@:&nbsp;&nbsp;@TUserCount.ToString()
+                                }
+                        }
+                    </div>
+                    <div class="d1DesignText white">
+                        Total Registered Users
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="d2Total">
+
+                    <div class="d2DesignNo">
+                        @{ if (Session["UserCount"] != null)
+                            {
+                                var TUserCount = Session["UserCount"];
+                                <span class="glyphicon glyphicon-cog"></span>@:&nbsp;&nbsp;@TUserCount.ToString()
+                                 }
+                        }
+                    </div>
+                    <div class="d2DesignText white">
+                        Heaters Configured
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="d3Total">
+                    <div class="d3DesignNo">
+                        @{ if (Session["OrderCount"] != null)
+                            {
+                                var TOrderCount = Session["OrderCount"];
+                                <span class="glyphicon glyphicon-saved"></span>@:&nbsp;&nbsp;@TOrderCount.ToString()
+                                }
+                        }
+                    </div>
+                    <div class="d3DesignText white">
+                        Orders Placed
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="d4Total">
+                    <div class="d1DesignNo">
+                        @{ if (Session["TUserCount"] != null)
+                            {
+                                var TUserCount = Session["TodUserCount"];
+                                <span class="glyphicon glyphicon-list-alt"></span>@:&nbsp;&nbsp;@TUserCount.ToString()
+                                }
+                        }
+                    </div>
+                    <div class="d1DesignText white">
+                        Total Users Today
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="container">
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>Sl.No</th>
+                    <th>Role Name</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int tl = 0;
+                    foreach (var item in Model)
+                    {
+                        <tr class="active">
+                            <td>@(tl = tl + 1)</td>
+                            <td>@item.Name</td>
+                            <td>
+                                <span onclick="return confirm('Are you sure to delete?')">
+                                    <a href="@Url.Action("Delete", "Roles", new { @item.Id })"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <hr />
+    @Html.ActionLink("Create Role", "Create", "Roles", new { @class = "btn btn-default" })
+
+    @*
+        <table id="tbrole">
+            <tr>
+                <td class="c">
+                    Role Name
+                </td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td colspan="2">
+                        @item.Name
+                    </td>
+                    <td>
+                        <span onclick="return confirm('Are you sure to delete?')">
+                            <a href="/Account/RoleDelete?RoleName=@item.Name" class="delLink"><span class="glyphicon glyphicon-remove"><span></span> Delete</a>
+                        </span>
+                    </td>
+                </tr>
+                <div class="tr">
+                    <div class="td">
+                        @item.Name
+                    </div>
+                    <div class="td">
+                        <span onclick="return confirm('Are you sure to delete?')">
+                            <a href="/Account/RoleDelete?RoleName=@item.Name" class="delLink"><span class="glyphicon glyphicon-remove"><span></span> Delete</a>
+                        </span>
+                    </div>
+                </div>
+            }
+        </table>  *@
+</div>
